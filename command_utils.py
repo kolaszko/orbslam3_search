@@ -36,6 +36,7 @@ def run_experiment(config_file='/root/esa_ws/src/orbslam3_ros2/config/stereo/mad
     
     time.sleep(2)
     p = run_cmd(['killall', 'ros2'])
+    time.sleep(5)
     
 
 if __name__ == "__main__":
