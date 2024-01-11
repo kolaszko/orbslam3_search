@@ -20,7 +20,7 @@ def bag_cmd(bag_path, delay):
 
 def run_experiment(config_file='/root/esa_ws/src/orbslam3_ros2/config/stereo/madmax_C.yaml', bag_path='/root/data/madmax_eval/C0_20181205-123437_filtered', delay=2):
     slam_proc = run_cmd(slam_cmd(config_file))
-    time.sleep(5)
+    time.sleep(10)
     bag_proc = subprocess.Popen(bag_cmd(bag_path, delay), shell=True)
 
     hz_proc = subprocess.Popen('sleep 60; ros2 topic hz /pose > frequency.txt', shell=True)
@@ -34,10 +34,8 @@ def run_experiment(config_file='/root/esa_ws/src/orbslam3_ros2/config/stereo/mad
     slam_proc.kill()
     p = run_cmd(['killall', '/root/esa_ws/install/orbslam3/lib/orbslam3/stereo'])
     
-    time.sleep(1)
-    p.communicate(b"y\n")
-    p.terminate()
-    p.kill()
+    time.sleep(2)
+    p = run_cmd(['killall', 'ros2'])
     
 
 if __name__ == "__main__":
