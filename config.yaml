@@ -6,5 +6,8 @@ orb:
 image:
   scale: 0.5
 
+stereo:
+  ThDepth: 80.0
+
 bag:
   path: "/root/data/madmax_eval/C1_20181205-125803_filtered"
